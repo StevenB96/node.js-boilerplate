@@ -1,0 +1,17 @@
+case GET_PROFILE_REQUEST:
+  return {
+    loading: true,
+    error: null
+  };
+case GET_PROFILE_SUCCESS:
+  return {
+    ...state,
+    profile: action.payload,
+    loading: false,
+    error: false
+  };
+case GET_PROFILE_FAILURE:
+  return {
+    loading: false,
+    error: true
+  };

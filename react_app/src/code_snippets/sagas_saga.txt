@@ -1,0 +1,17 @@
+function* getProfile(action) {
+  try {
+    const data = yield call(fetchDataFromApi, {
+      method: 'GET',
+      url: `${env.SERVER_URL || "http://localhost:3000"}/`,
+      path: 'profile/',
+      qParams: '',
+      payload: action.payload
+    });
+
+    yield put(getProfileSuccess(data));
+  } catch (error) {
+    yield put(getProfileFailure(error.message));
+  }
+}
+
+yield takeLatest(GET_PROFILE_REQUEST, getProfile);

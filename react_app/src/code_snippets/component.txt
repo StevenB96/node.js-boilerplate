@@ -1,0 +1,34 @@
+import {
+  useState,
+  useEffect,
+  useReducer,
+} from 'react';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
+
+function App() {
+  const dispatch = useDispatch();
+  const app = useSelector(state => state.app);
+  const [value, setValue] = useState(null);
+
+  return (
+    <Layout>
+      <Routes>
+        <Route
+          exact
+          path="/a"
+          element={<p>A</p>}
+        />
+        <Route
+          exact
+          path="/b"
+          element={<p>B</p>}
+        />
+      </Routes>
+    </Layout>
+  );
+}
+
+export default App;
