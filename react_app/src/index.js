@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'typeface-quicksand';
+import {
+  BrowserRouter as Router
+} from 'react-router-dom';
 import App from './App';
 import './index.css'
 
@@ -27,7 +29,9 @@ root.render(
     <Provider
       store={store}
     >
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   </React.StrictMode>
 );
