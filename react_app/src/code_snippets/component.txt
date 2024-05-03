@@ -7,27 +7,51 @@ import {
   useDispatch,
   useSelector,
 } from 'react-redux';
+import {
+  // getProfileRequest,
+} from './Redux/Actions/appActions';
 
 function App() {
+  const containerRef = useRef();
   const dispatch = useDispatch();
   const app = useSelector(state => state.app);
   const [value, setValue] = useState(null);
 
+  useEffect(() => {
+    // Set up resize listener
+    const handleResize = () => {
+      console.log('Window resized!');
+      // Your resize logic here
+    };
+    window.addEventListener('resize', handleResize);
+
+    // Clean up listeners
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Set up listener
+    const timer = setTimeout(() => {
+      setValue(value + 1);
+    }, 1000);
+
+    // Clean up listeners
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    // dispatch(getProfileRequest());
+  }, []);
+
   return (
-    <Layout>
-      <Routes>
-        <Route
-          exact
-          path="/a"
-          element={<p>A</p>}
-        />
-        <Route
-          exact
-          path="/b"
-          element={<p>B</p>}
-        />
-      </Routes>
-    </Layout>
+    <div
+      ref={containerRef}
+    >
+    </div>
   );
 }
 
