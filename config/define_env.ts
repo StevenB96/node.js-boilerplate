@@ -1,11 +1,11 @@
-const dotenv = require('dotenv');
-const path = require('path');
+import dotenv from 'dotenv';
+import path from 'path';
 
 /**
  * Set env variables for process.
  */
 
-const define_env = (baseDir) => {
+const define_env = (baseDir: string) => {
   // Define the directory containing the .env file
   const envDir = path.resolve(__dirname, baseDir);
 
@@ -20,4 +20,4 @@ const define_env = (baseDir) => {
   dotenv.config({ path: envEnvironmentFilePath });
 }
 
-module.exports = define_env;
+export default define_env;

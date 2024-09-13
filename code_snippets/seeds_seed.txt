@@ -1,4 +1,5 @@
-var define_env = require('../config/define_env');
+const types = require('../constants/types');
+const define_env = require('../config/define_env');
 
 /**
  * Set env variables for app.
@@ -12,24 +13,12 @@ define_env('..');
  */
 exports.seed = async function (knex) {
   // Deletes all existing entries
-  return knex('profile')
+  return knex('x')
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex('profile').insert([
-        {
-          name: '',
-          job_title: '',
-          description: '',
-          phone: '',
-          email: '',
-          address: '',
-          profile_picture_link: `${process.env.SERVER_URL || "http://localhost:3000"}/public/images/profile_picture.jpg`,
-          background_image_link: `${process.env.SERVER_URL || "http://localhost:3000"}/public/images/background_image.jpg`,
-          cv_link: `${process.env.SERVER_URL}/public/documents/cv.pdf`,
-          created_at: new Date(),
-          updated_at: new Date()
-        },
+      return knex('x').insert([
+        {},
       ]
       );
     });

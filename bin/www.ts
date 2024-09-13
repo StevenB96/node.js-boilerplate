@@ -4,10 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('express-boilerplate:server');
-var http = require('http');
-var define_env = require('../config/define_env');
+import app from '../app';
+import debug from 'debug';
+import http from 'http';
+import define_env from '../config/define_env';
+
+const serverDebug = debug('express-boilerplate:server');
 
 /**
  * Set env variables for app.
@@ -93,5 +95,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  serverDebug('Listening on ' + bind);
 }

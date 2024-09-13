@@ -1,13 +1,12 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('./config/cors');
+import createError from 'http-errors';
+import express, { Request, Response, NextFunction } from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import cors from './config/cors';
+import indexRouter from './routes/index';
 
-var indexRouter = require('./routes/index');
-
-var app = express();
+const app = express();
 
 /**
  * Configure CORS with allowed origins
@@ -34,15 +33,20 @@ app.use('/', indexRouter);
  * Catch 404 and forward to error handler
  */
 
-app.use(function(req, res, next) {
+app.use(function(req: Request, res: Response, next: NextFunction) {
   next(createError(404));
 });
+
+interface Error {
+  status?: number;
+  message?: string;
+}
 
 /**
  * Error handler
  */
 
-app.use(function(err, req, res, next) {
+app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -52,4 +56,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;
