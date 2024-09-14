@@ -6,6 +6,7 @@ npx ts-node ./bin/www
 
 ## .env configuration
 NODE_ENV=development
+DB_ENV=development
 
 ## .env.development configuration
 SERVER_URL=http://localhost:3000
