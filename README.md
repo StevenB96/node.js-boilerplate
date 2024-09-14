@@ -1,7 +1,29 @@
-# Node Boilerplate
+# StevenBerrisford.com
+This repository is based on React/Express boilerplate code. The sections below relate to the configuration and operation of the project.
 
-## Knex commands
+## Typescript execution
+npx ts-node ./bin/www
+
+## .env configuration
+NODE_ENV=development
+
+## .env.development configuration
+SERVER_URL=http://localhost:3000
+SERVER_PORT=3000
+
+## .env.production configuration
+SERVER_URL=http://stevenberrisford.com
+SERVER_PORT=8008
+
+## Knex operations
 - npx knex migrate:latest --knexfile ./config/knexfile.js --env main
 - npx knex migrate:make [x] --knexfile ./config/knexfile.js --env main
 - npx knex seed:make [x] --knexfile ./config/knexfile.js --env main
 - npx knex seed:run --knexfile ./config/knexfile.js --env main
+
+## Pm2 operations
+- pm2 list
+- pm2 restart app_name/pid
+- pm2 reload app_name/pid
+- pm2 stop app_name/pid
+- pm2 delete app_name/pid

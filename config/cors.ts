@@ -7,18 +7,11 @@ const allowedOrigins: string[] = [
 
 // Configure CORS options
 const corsOptions: CorsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests without an origin (e.g., mobile apps, curl, etc)
-    if (!origin) {
-      callback(null, true); // Allow the request
-      return;
-    }
-    
-    // Check if the provided origin is allowed
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true); // Allow the request
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS')); // Deny the request
+      callback(new Error('Not allowed by CORS'));
     }
   }
 };

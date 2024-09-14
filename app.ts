@@ -37,16 +37,11 @@ app.use(function(req: Request, res: Response, next: NextFunction) {
   next(createError(404));
 });
 
-interface Error {
-  status?: number;
-  message?: string;
-}
-
 /**
  * Error handler
  */
 
-app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
+app.use(function(err: any, req: Request, res: Response, next: NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
