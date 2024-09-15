@@ -17,6 +17,7 @@ router.get('/process_information', (req, res) => {
         <li>DB Env: ${process.env.DB_ENV}</li>
         <li>Server Url: ${process.env.SERVER_URL}</li>
         <li>Server Port: ${process.env.SERVER_PORT}</li>
+        <li>Allowed Origins: ${process.env.ALLOWED_ORIGINS}</li>
       </ul>
     `);
 });

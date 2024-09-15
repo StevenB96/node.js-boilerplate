@@ -4,17 +4,19 @@ This repository is based on React/Express boilerplate code. The sections below r
 ## Typescript execution
 npx ts-node ./bin/www
 
-## .env configuration
+## E.g. .env configuration
 NODE_ENV=development
 DB_ENV=development
 
-## .env.development configuration
+## E.g. .env.development configuration
 SERVER_URL=http://localhost:3000
 SERVER_PORT=3000
+ALLOWED_ORIGINS=x,y
 
-## .env.production configuration
+## E.g. .env.production configuration
 SERVER_URL=http://stevenberrisford.com
 SERVER_PORT=8008
+ALLOWED_ORIGINS=x,y
 
 ## Knex operations
 - npx knex migrate:latest --knexfile ./config/knexfile.js --env main
