@@ -22,4 +22,17 @@ router.get('/process_information', (req, res) => {
     `);
 });
 
+// Serve React app
+const reactBuildDir = path.join(__dirname, '..', 'react_app', 'build');
+router.use(express.static(reactBuildDir));
+router.get('/', async (req, res, next) => {
+  try {
+    router.get('/app', (req, res) => {
+      res.sendFile(path.join(reactBuildDir, 'index.html'));
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;

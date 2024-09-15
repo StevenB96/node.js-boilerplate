@@ -1,8 +1,7 @@
 {
-  "short_name": "Node Boilerplate",
-  "name": "Node Boilerplate",
-  "icons": [
-  ],
+  "short_name": "React Boilerplate",
+  "name": "React Boilerplate",
+  "icons": [],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
