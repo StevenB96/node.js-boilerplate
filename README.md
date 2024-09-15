@@ -1,32 +1,32 @@
 # React/Express Boilerplate
 This repository is React/Express boilerplate code, to be used as the basis for multiple projects. The sections below relate to the configuration and operation of the project.
 
-## Typescript execution
+## Typescript execution.
 ```
 - npx ts-node ./bin/www
 ```
 
-## Example .env configuration
+## Example .env configuration.
 ```
 NODE_ENV=development
 DB_ENV=development
 ```
 
-## Example .env.development configuration
+## Example .env.development configuration.
 ```
 SERVER_URL=http://localhost:3000
 SERVER_PORT=3000
 ALLOWED_ORIGINS=x,y
 ```
 
-## Example .env.production configuration
+## Example .env.production configuration.
 ```
 SERVER_URL=http://stevenberrisford.com
 SERVER_PORT=8008
 ALLOWED_ORIGINS=x,y
 ```
 
-## Knex operations
+## Knex operations.
 ```
 - npx knex migrate:latest --knexfile ./config/knexfile.js --env main
 - npx knex migrate:make [x] --knexfile ./config/knexfile.js --env main
@@ -34,7 +34,7 @@ ALLOWED_ORIGINS=x,y
 - npx knex seed:run --knexfile ./config/knexfile.js --env main
 ```
 
-## Pm2 operations
+## Pm2 operations.
 ```
 - pm2 list
 - pm2 restart app_name/pid
@@ -43,7 +43,7 @@ ALLOWED_ORIGINS=x,y
 - pm2 delete app_name/pid
 ```
 
-## Code snippets
+## Code snippets.
 ### Example knexfile configuration.
 ```
 developement: {
@@ -121,4 +121,19 @@ exports.seed = async function (knex) {
 exports.rollback = async function(knex) {
   await knex('x').truncate();
 };
+```
+### Example route.
+```
+// Serve React app
+const reactBuildDir = path.join(__dirname, '..', 'react_app', 'build');
+router.use(express.static(reactBuildDir));
+router.get('/', async (req, res, next) => {
+  try {
+    router.get('/app', (req, res) => {
+      res.sendFile(path.join(reactBuildDir, 'index.html'));
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 ```
