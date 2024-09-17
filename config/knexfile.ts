@@ -1,3 +1,6 @@
+/**
+ * Module dependencies.
+ */
 import path from 'path';
 
 const baseDirectory = path.join(__dirname, '..');

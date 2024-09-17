@@ -1,9 +1,6 @@
-#!/usr/bin/env node
-
 /**
  * Module dependencies.
  */
-
 import app from '../app';
 import debug from 'debug';
 import http from 'http';
@@ -14,44 +11,40 @@ const serverDebug = debug('express-boilerplate:server');
 /**
  * Set env variables for app.
  */
-
 define_env('..');
 
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.SERVER_PORT || 3000);
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-
 var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
+ * 
+ * @param val 
+ * @returns {number|string|boolean}
  */
-
 function normalizePort(val: any) {
   const port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
     return val;
   }
 
   if (port >= 0) {
-    // port number
     return port;
   }
 
@@ -60,6 +53,9 @@ function normalizePort(val: any) {
 
 /**
  * Event listener for HTTP server "error" event.
+ * 
+ * @param error
+ * @returns {void}
  */
 function onError(error: any) {
   if (error.syscall !== 'listen') {
@@ -85,6 +81,8 @@ function onError(error: any) {
 
 /**
  * Event listener for HTTP server "listening" event.
+ * 
+ * @returns {void}
  */
 function onListening() {
   const addr = server.address();

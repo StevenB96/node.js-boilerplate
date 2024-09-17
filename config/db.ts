@@ -1,3 +1,6 @@
+/**
+ * Module dependencies.
+ */
 import knex from 'knex';
 import knexConfig from './knexfile';
 

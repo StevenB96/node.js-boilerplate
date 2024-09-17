@@ -1,8 +1,14 @@
+/**
+ * Module dependencies.
+ */
 import dotenv from 'dotenv';
 import path from 'path';
 
 /**
  * Set env variables for process.
+ * 
+ * @param baseDir
+ * @returns {void}
  */
 const define_env = (baseDir: string) => {
   // Define the directory containing the .env file.

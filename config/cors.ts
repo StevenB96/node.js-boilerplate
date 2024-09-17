@@ -1,3 +1,6 @@
+/**
+ * Module dependencies.
+ */
 import cors, { CorsOptions } from 'cors';
 import define_env from '../config/define_env';
 

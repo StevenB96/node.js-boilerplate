@@ -1,4 +1,6 @@
-import React from 'react';
+/**
+ * Module dependencies.
+ */
 import './App.css';
 
 function App() {
